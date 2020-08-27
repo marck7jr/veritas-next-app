@@ -1,0 +1,33 @@
+@import "./config";
+@import "./theme";
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+      @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+  
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.";
+    }
+  }
+  
+@mixin theme($property, $color, $alpha: 1, $additionalPropertiesPositionIsFront: false, $additionalProperties: '') {
+  $dark: map-get($themes, $dark-theme);
+  $light: map-get($themes, $light-theme);
+  
+  @include theme-property($light, $property, $color, $alpha, $additionalPropertiesPositionIsFront, $additionalProperties);
+  
+  @media (prefers-color-scheme: dark) {
+    @include theme-property($dark, $property, $color, $alpha, $additionalPropertiesPositionIsFront, $additionalProperties);
+  }
+}
+
+@mixin theme-property($theme, $property, $color, $alpha, $additionalPropertiesPositionIsFront, $additionalProperties) {
+  @if $additionalPropertiesPositionIsFront {
+    #{$property}:unquote($additionalProperties + ' ' + rgba(map-get($theme, $color), $alpha));
+  } @else {
+    #{$property}:unquote(rgba(map-get($theme, $color), $alpha) + ' ' + $additionalProperties);
+  }
+}

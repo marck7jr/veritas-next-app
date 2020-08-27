@@ -1,0 +1,71 @@
+@import '../../styles/mixins';
+
+$background-filter: blur(20px) saturate(125%);
+
+.nav {
+    @include theme('background', $color, .1);
+    box-shadow: 0 .25em .5em rgba(#000, .2);
+    display: flex;
+    grid-area: nav;
+    padding: .5em;
+    position: sticky;
+    top: 0;
+
+    @supports (backdrop-filter: $background-filter) or (-webkit-backdrop-filter: $background-filter) {
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+    }
+
+    .header {
+        @include theme('box-shadow', $color, .2, true, '.05em 0 0');
+        align-items: center;
+        display: flex;
+        padding-right: 1.25em;
+
+        @include respond-to('small') {
+            margin-left: 10em;
+        }
+
+        span {
+            font-size: 1.25em;
+            font-weight: 500;
+            letter-spacing: -1pt;
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            margin-right: 2pt;
+            max-height: 1.5em;
+            max-width: 1.5em;
+        }
+    }
+
+    .content {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 1.25em;
+
+        a {
+            font-size: 1em;
+            font-weight: 100;
+            margin-right: 2em;
+            padding: 4pt 0 4pt 0;
+
+            &[id="0"] {
+                font-weight: 500;
+            }
+
+            &:hover {
+                @include theme('box-shadow', $color, 1, true, '0 2px 0');
+            }
+            
+            &.active:not([id="0"]) {
+                @include theme('color', $accent-color);
+                @include theme('box-shadow', $accent-color, 1, true, '0 2px');
+                font-weight: 500;
+            }
+        }
+    }
+}

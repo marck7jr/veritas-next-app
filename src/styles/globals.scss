@@ -1,0 +1,41 @@
+@import './mixins';
+
+html,
+body {
+  @include theme('background', $background);
+  @include theme('color', $color);
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all .2s;
+}
+
+::-webkit-scrollbar {
+  @include theme('background', $background);
+  border-radius: .5em;
+  max-height: .25em;
+  max-width: .25em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: .5em;
+  @include theme('background', $accent-color);
+
+  &:hover {
+    @include theme('background', $accent-color);
+  }
+}

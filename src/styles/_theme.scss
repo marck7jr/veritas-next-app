@@ -1,0 +1,21 @@
+@use "sass:color";
+
+$dark-theme: "dark-theme";
+$light-theme: "light-theme";
+
+$accent-color: "accent-color";
+$background: "background";
+$color: "color";
+
+$themes: (
+    $dark-theme: (
+        $accent-color: lighten(#A51E42, 8),
+        $background: #121212,
+        $color: #ccc,
+    ),
+    $light-theme: (
+        $accent-color: #A51E42,
+        $background: #fff,
+        $color: #121212,
+    ),
+);

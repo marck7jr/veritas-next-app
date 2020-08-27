@@ -1,0 +1,9 @@
+$small: "small";
+$medium: "medium";
+$large: "large";
+
+$breakpoints: (
+  $small  : 767px,
+  $medium : 992px,
+  $large  : 1200px,
+) !default;

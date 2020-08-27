@@ -1,0 +1,27 @@
+@import '../../styles/mixins';
+
+.footer {
+    display: flex;
+    @include theme('background', $color, .1);
+    flex-direction: row-reverse;
+    font-size: .8em;
+    font-weight: 100;
+    grid-area: footer;
+    padding: 2em;
+
+    * {
+        margin-left: 2em;
+    }
+
+    a {
+
+        &.active {
+            @include theme('color', $accent-color);
+            font-weight: 700;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
