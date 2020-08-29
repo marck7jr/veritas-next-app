@@ -1,12 +1,9 @@
+import { useState } from 'react';
 import Link from 'next/link';
-import { withRouter, Router } from 'next/router';
+import { Router, withRouter } from 'next/router';
 import styles from './nav.module.scss';
 
 const _ = [
-    {
-        href: '/',
-        name: 'Game Launcher'
-    },
     {
         href: '/',
         name: 'Home'
@@ -21,16 +18,21 @@ type NavProps = {
     router: Router
 }
 
-const Nav = ({ router}: NavProps) => {
+
+const NavMenu = ({ router }: NavProps) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <>
             <nav className={styles.nav}>
-                <div className={styles.header}>
+                <header>
                     <img src='/svg/Veritas.svg' />
                     <span>Veritas</span>
-                </div>
-                <div className={styles.content}>
+                    <Link href='/'>
+                        <a id='-1'>Game Launcher</a>
+                    </Link>
+                </header>
+                <div className={`${styles.content} ${isMenuOpen ? styles.open : ''}`}>
                     {_.map((item, index) => {
                         let className = router.pathname === item.href ? styles.active : null;
 
@@ -43,9 +45,12 @@ const Nav = ({ router}: NavProps) => {
                         );
                     })}
                 </div>
+                <button className={`${styles.navigation} ${isMenuOpen ? styles.open : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    <img src='/svg/Navigation.svg' />
+                </button>
             </nav>
         </>
     );
 }
 
-export default withRouter(Nav);
+export default withRouter(NavMenu);
