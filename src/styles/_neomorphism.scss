@@ -1,0 +1,16 @@
+@import "./theme";
+
+$neomorphism-background: get-theme-resource($background, $theme-light);
+$neomorphism-background__focus: linear-gradient(
+  145deg,
+  rgba(get-theme-resource($background, $theme-dark), 0.1),
+  get-theme-resource($background, $theme-light)
+);
+$neomorphism-background__hover: linear-gradient(
+  145deg,
+  get-theme-resource($background, $theme-light),
+  rgba(get-theme-resource($background, $theme-dark), 0.1)
+);
+$neomorphism-box-shadow: 20px 20px 60px
+    rgba(get-theme-resource($background, $theme-dark), 0.2),
+  -20px -20px 60px get-theme-resource($background, $theme-light);

@@ -1,0 +1,20 @@
+@import "../../styles/theme";
+
+.footer {
+    display: flex;
+    @include theme-resource('background', $color, .1);
+    flex-direction: row-reverse;
+    font-size: .8em;
+    font-weight: 100;
+    grid-area: footer;
+    padding: 2em;
+
+    .link {
+        margin-right: 2em;
+
+        &__active {
+            @include theme-resource('color', $color-accent);
+            font-weight: 700;
+        }
+    }
+}

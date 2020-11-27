@@ -1,9 +1,19 @@
+@import "./theme";
+
 html,
 body {
+  @include theme-resource("background", $background);
+  @include theme-resource("color", $color);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -11,6 +21,11 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100vw;
+}
+
 * {
   box-sizing: border-box;
+  transition: all 0.2s;
 }

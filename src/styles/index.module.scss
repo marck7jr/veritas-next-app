@@ -1,0 +1,134 @@
+@import "../styles/responsive";
+@import "../styles/theme";
+@import "../styles/neomorphism";
+@import "../styles/neon";
+
+.index {
+  a {
+    @include theme-resource("color", $color-accent);
+  }
+
+  h1,
+  h2 {
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .conclusion {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    @include theme-resource("background", $background-alt);
+
+    button {
+      border: none;
+      margin: 2em;
+      outline: none;
+      padding: 1em 8em;
+
+      @media (prefers-color-scheme: dark) {
+        background: $neon-background;
+        @include neon-border();
+
+        a {
+          color: get-theme-resource($color, $theme-dark);
+        }
+        
+        &:hover {
+          background: $neon-background__hover;
+        }
+      }
+      
+      @media (prefers-color-scheme: light) {
+        background: $neomorphism-background;
+        box-shadow: $neomorphism-box-shadow;
+
+        &:hover {
+          background: $neomorphism-background__hover;
+        }
+      }
+
+      a {
+        @include theme-resource("color", $color);
+        font-weight: 100;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .features {
+    div {
+      @include theme-resource("background", $background);
+      padding: 2em;
+    }
+
+    img {
+      @media (prefers-color-scheme: light) {
+        box-shadow: $neomorphism-box-shadow;
+      }
+
+      @include respond-to("large") {
+        border: none;
+        border-radius: 4pt;
+        margin: 4em;
+        max-width: 60vw;
+      }
+    }
+
+    &_right {
+      @include respond-to("large") {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    &_left {
+      @include respond-to("large") {
+        align-items: center;
+        display: flex;
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  .presentation {
+    background: url("/static/png/fredrick-tendong--GMUHeFuJUs-unsplash.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 80vh;
+
+    caption {
+      color: get-theme-resource($color, $theme-dark);
+      font-size: 24pt;
+      font-weight: bold;
+      margin: 2em;
+      text-transform: uppercase;
+    }
+
+    div {
+      @include theme-resource("background", $background);
+      margin-top: auto;
+      padding: 2em;
+
+      h2 {
+        @include theme-resource("color", $color-accent);
+      }
+
+      @include respond-to("small") {
+        max-width: 40vw;
+
+        h1 {
+          font-size: 24pt;
+        }
+
+        h2 {
+          font-size: 32pt;
+        }
+      }
+    }
+  }
+}

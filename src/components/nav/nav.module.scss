@@ -1,0 +1,110 @@
+@use "sass:color";
+
+@import "../../styles/neomorphism";
+@import "../../styles/neon";
+@import "../../styles/responsive";
+@import "../../styles/theme";
+
+.nav {
+  @include theme-resource("background", $background);
+  box-shadow: 0 0 8pt 2pt rgba(#000, 0.2);
+  border-radius: 0 0 4pt 4pt;
+  display: flex;
+  flex-direction: row;
+  grid-area: nav;
+  position: sticky;
+  top: 0;
+  z-index: 2020;
+
+  ol {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0 12pt;
+
+    li {
+      margin: 0 8pt;
+    }
+  }
+
+  &_footer {
+    display: flex;
+    margin-left: auto;
+
+    button {
+      @include theme-resource("color", $color);
+      border: none;
+      border-radius: 4pt;
+      font-weight: 100;
+      margin: 8pt;
+      padding: 2pt 1em;
+      text-transform: uppercase;
+
+      @media (prefers-color-scheme: dark) {
+        background: $neon-background;
+        @include neon-border();
+
+        &:hover {
+          background: $neon-background__hover;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        background: $neomorphism-background;
+        box-shadow: $neomorphism-box-shadow;
+
+        &:hover {
+          background: $neomorphism-background__hover;
+        }
+      }
+
+      @include respond-to("large") {
+        padding: 2pt 4em;
+      }
+    }
+  }
+
+  &_header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    @include respond-to("small") {
+      padding-left: 4em;
+    }
+
+    img {
+      max-height: 24pt;
+      margin: 4pt;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      line-height: 12pt;
+      margin: 4pt;
+
+      span {
+        font-weight: 100;
+        font-size: 10pt;
+      }
+
+      strong {
+        font-size: 14pt;
+        font-weight: bold;
+        letter-spacing: -1pt;
+      }
+    }
+  }
+
+  &_item {
+    &:hover {
+      @include theme-resource("color", $color-accent);
+    }
+
+    &__active {
+      @include theme-resource("color", $color-accent);
+      font-weight: bold;
+    }
+  }
+}

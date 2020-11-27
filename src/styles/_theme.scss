@@ -1,0 +1,90 @@
+$theme-dark: "theme-dark";
+$theme-light: "theme-light";
+
+$background: "background";
+$background-alt: "background-alt";
+$color: "color";
+$color-accent: "color-accent";
+$color-alt: "chrome";
+
+$color-accent-theme-dark: #0bc3b2;
+$color-accent-theme-light: #107f7e;
+
+$is-theme-light: true;
+
+@media (prefers-color-scheme: dark) {
+  $is-theme-light: false !global;
+}
+
+$themes: (
+  $theme-dark: (
+    $background: #000,
+    $background-alt: #121212,
+    $color: #fff,
+    $color-accent: $color-accent-theme-dark,
+    $color-alt: #ccc,
+  ),
+  $theme-light: (
+    $background: #fff,
+    $background-alt: #ccc,
+    $color: #000,
+    $color-accent: $color-accent-theme-light,
+    $color-alt: #121212,
+  ),
+);
+
+@function get-theme-resource($theme-value-key, $theme-key) {
+  $theme-values: map-get($themes, $theme-key);
+
+  @return map-get($theme-values, $theme-value-key);
+}
+
+@mixin theme-resource(
+  $property,
+  $color,
+  $alpha: 1,
+  $additionalPropertiesPositionIsFront: false,
+  $additionalProperties: ""
+) {
+  $theme-dark-values: map-get($themes, $theme-dark);
+  $theme-light-values: map-get($themes, $theme-light);
+
+  @include theme-resource-property(
+    $theme-light-values,
+    $property,
+    $color,
+    $alpha,
+    $additionalPropertiesPositionIsFront,
+    $additionalProperties
+  );
+
+  @media (prefers-color-scheme: dark) {
+    @include theme-resource-property(
+      $theme-dark-values,
+      $property,
+      $color,
+      $alpha,
+      $additionalPropertiesPositionIsFront,
+      $additionalProperties
+    );
+  }
+}
+
+@mixin theme-resource-property(
+  $theme,
+  $property,
+  $color,
+  $alpha,
+  $additionalPropertiesPositionIsFront,
+  $additionalProperties
+) {
+  @if $additionalPropertiesPositionIsFront {
+    #{$property}: unquote(
+      $additionalProperties + " " + rgba(map-get($theme, $color), $alpha)
+    );
+  } @else {
+    #{$property}: unquote(
+      rgba(map-get($theme, $color), $alpha) + " " + $additionalProperties
+    );
+  }
+}

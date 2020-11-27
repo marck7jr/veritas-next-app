@@ -1,0 +1,24 @@
+@import "theme";
+
+$neon-background: linear-gradient(
+  to right,
+  get-theme-resource($color-accent, $theme-light),
+  get-theme-resource($color-accent, $theme-dark)
+);
+$neon-background__hover: linear-gradient(
+  to right,
+  lighten(get-theme-resource($color-accent, $theme-light), 10),
+  lighten(get-theme-resource($color-accent, $theme-dark), 10)
+);
+$neon-border-image: linear-gradient(
+  to right,
+  get-theme-resource($color-accent, $theme-dark),
+  get-theme-resource($color-accent, $theme-light)
+);
+
+@mixin neon-border() {
+  border: 2pt;
+  border-image: $neon-border-image;
+  border-image-slice: 1;
+  border-style: solid;
+}
