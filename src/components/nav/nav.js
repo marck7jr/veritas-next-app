@@ -53,7 +53,7 @@ const NavHeader = () => {
   return (
     <>
       <header className={styles.nav_header}>
-        <img src="static/svg/Veritas.svg" />
+        <img src="/static/svg/Veritas.svg" />
         <div>
           <strong>Veritas</strong>
           <span>Game Launcher</span>
