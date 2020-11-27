@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $theme-dark: "theme-dark";
 $theme-light: "theme-light";
 
@@ -16,17 +18,19 @@ $is-theme-light: true;
   $is-theme-light: false !global;
 }
 
+$alt-value: 5;
+
 $themes: (
   $theme-dark: (
     $background: #000,
-    $background-alt: #121212,
+    $background-alt: lighten(#000, $alt-value),
     $color: #fff,
     $color-accent: $color-accent-theme-dark,
     $color-alt: #ccc,
   ),
   $theme-light: (
     $background: #fff,
-    $background-alt: #ccc,
+    $background-alt: darken(#fff, $alt-value),
     $color: #000,
     $color-accent: $color-accent-theme-light,
     $color-alt: #121212,

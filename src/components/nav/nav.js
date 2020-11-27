@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Router, withRouter } from 'next/router';
+import { Router, withRouter } from "next/router";
 import styles from "./nav.module.scss";
 
 const _ = [
@@ -8,16 +8,17 @@ const _ = [
     href: "/",
   },
   {
-    content: "Docs",
-    href: "/docs",
-  },
-  {
     content: "Blog",
     href: "/blog",
   },
+  {
+    content: "Github",
+    href: "https://github.com/marck7jr/veritas-uwp-app",
+    target: "_blank",
+  },
 ];
 
-const Nav = ({router}) => {
+const Nav = ({ router }) => {
   return (
     <>
       <nav className={styles.nav}>
@@ -25,7 +26,12 @@ const Nav = ({router}) => {
         <ol>
           {_.map((_, i) => (
             <li key={i}>
-              <NavItem content={_.content} href={_.href} router={router} />
+              <NavItem
+                content={_.content}
+                href={_.href}
+                router={router}
+                target={_.target}
+              />
             </li>
           ))}
         </ol>
@@ -39,7 +45,7 @@ const NavFooter = () => {
   return (
     <>
       <footer className={styles.nav_footer}>
-        <Link href="/downloads">
+        <Link href="https://www.microsoft.com/store/r/9N16CCVC2WP9">
           <button>
             <a>Get Started</a>
           </button>
@@ -63,13 +69,16 @@ const NavHeader = () => {
   );
 };
 
-const NavItem = ({ content, href, router }) => {
-  let className = router.pathname === href ? styles.nav_item__active : styles.nav_item;
+const NavItem = ({ content, href, router, target }) => {
+  let className =
+    router.pathname === href ? styles.nav_item__active : styles.nav_item;
 
   return (
     <>
       <Link href={href}>
-        <a className={className}>{content}</a>
+        <a className={className} target={target}>
+          {content}
+        </a>
       </Link>
     </>
   );

@@ -6,7 +6,7 @@
 @import "../../styles/theme";
 
 .nav {
-  @include theme-resource("background", $background);
+  @include theme-resource("background", $background-alt);
   box-shadow: 0 0 8pt 2pt rgba(#000, 0.2);
   border-radius: 0 0 4pt 4pt;
   display: flex;
@@ -34,29 +34,19 @@
 
     button {
       @include theme-resource("color", $color);
-      border: none;
-      border-radius: 4pt;
+      border-radius: 2em;
       font-weight: 100;
       margin: 8pt;
+      outline: none;
       padding: 2pt 1em;
       text-transform: uppercase;
 
       @media (prefers-color-scheme: dark) {
-        background: $neon-background;
-        @include neon-border();
-
-        &:hover {
-          background: $neon-background__hover;
-        }
+        @include neon-button();
       }
 
       @media (prefers-color-scheme: light) {
-        background: $neomorphism-background;
-        box-shadow: $neomorphism-box-shadow;
-
-        &:hover {
-          background: $neomorphism-background__hover;
-        }
+        @include neomorphism-button();
       }
 
       @include respond-to("large") {

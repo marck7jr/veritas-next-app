@@ -14,3 +14,18 @@ $neomorphism-background__hover: linear-gradient(
 $neomorphism-box-shadow: 20px 20px 60px
     rgba(get-theme-resource($background, $theme-dark), 0.2),
   -20px -20px 60px get-theme-resource($background, $theme-light);
+
+@mixin neomorphism-button() {
+  border: none;
+  background: $neomorphism-background;
+  box-shadow: $neomorphism-box-shadow;
+
+  &:hover {
+    background: $neomorphism-background__hover;
+  }
+
+  &,
+  * {
+    @include theme-resource("color", $color);
+  }
+}

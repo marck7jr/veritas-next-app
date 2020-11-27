@@ -10,15 +10,22 @@ $neon-background__hover: linear-gradient(
   lighten(get-theme-resource($color-accent, $theme-light), 10),
   lighten(get-theme-resource($color-accent, $theme-dark), 10)
 );
-$neon-border-image: linear-gradient(
-  to right,
-  get-theme-resource($color-accent, $theme-dark),
-  get-theme-resource($color-accent, $theme-light)
-);
+$neon-box-shadow: transparent;
 
-@mixin neon-border() {
-  border: 2pt;
-  border-image: $neon-border-image;
-  border-image-slice: 1;
-  border-style: solid;
+@mixin neon-button() {
+  @include theme-resource("border", $color-accent, 1, true, "1pt solid");
+  background: transparent;
+
+  &:hover {
+    @include theme-resource("background", $color-accent);
+
+    a {
+      @include theme-resource("color", $color);
+    }
+  }
+
+  &,
+  * {
+    @include theme-resource("color", $color-accent);
+  }
 }

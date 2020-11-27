@@ -21,37 +21,18 @@
     @include theme-resource("background", $background-alt);
 
     button {
-      border: none;
+      border-radius: 2em;
       margin: 2em;
-      outline: none;
       padding: 1em 8em;
+      outline: none;
+      text-transform: uppercase;
 
       @media (prefers-color-scheme: dark) {
-        background: $neon-background;
-        @include neon-border();
-
-        a {
-          color: get-theme-resource($color, $theme-dark);
-        }
-        
-        &:hover {
-          background: $neon-background__hover;
-        }
+        @include neon-button();
       }
-      
+
       @media (prefers-color-scheme: light) {
-        background: $neomorphism-background;
-        box-shadow: $neomorphism-box-shadow;
-
-        &:hover {
-          background: $neomorphism-background__hover;
-        }
-      }
-
-      a {
-        @include theme-resource("color", $color);
-        font-weight: 100;
-        text-transform: uppercase;
+        @include neomorphism-button();
       }
     }
   }
@@ -63,6 +44,10 @@
     }
 
     img {
+      @media (prefers-color-scheme: dark) {
+        box-shadow: $neon-box-shadow;
+      }
+
       @media (prefers-color-scheme: light) {
         box-shadow: $neomorphism-box-shadow;
       }

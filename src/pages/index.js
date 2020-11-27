@@ -37,9 +37,6 @@ const Index = () => {
                 launch the store client or find where it is installed? We can do
                 it for you.
               </p>
-              <Link href="">
-                <a>Learn more ›</a>
-              </Link>
             </div>
           </section>
           <section className={`${styles.features} ${styles.features_left}`}>
@@ -57,9 +54,6 @@ const Index = () => {
                 supported digital stores. Do commands like install, launch and
                 even uninstall any games in just a click. Awesome, right?
               </p>
-              <Link href="">
-                <a>Learn more ›</a>
-              </Link>
             </div>
           </section>
           <section className={`${styles.features} ${styles.features_right}`}>
@@ -85,8 +79,8 @@ const Index = () => {
                 videos. Those informations help us to give to you the must
                 cleaner, beautiful and rich collection.
               </p>
-              <Link href="">
-                <a>Learn more ›</a>
+              <Link href="https://api-docs.igdb.com/#about">
+                <a target="_blank">Learn more ›</a>
               </Link>
             </div>
           </section>
@@ -109,13 +103,13 @@ const Index = () => {
                 it. <strong>Veritas Game Launcher</strong> have your own widget!
                 Windows Key + G = MORE GAMING ❤❤❤
               </p>
-              <Link href="">
-                <a>Learn more ›</a>
+              <Link href="https://docs.microsoft.com/en-us/gaming/game-bar/">
+                <a target="_blank">Learn more ›</a>
               </Link>
             </div>
           </section>
           <section className={styles.conclusion}>
-            <Link href="/downloads">
+            <Link href="https://www.microsoft.com/store/r/9N16CCVC2WP9">
               <button>
                 <a>Free download</a>
               </button>
