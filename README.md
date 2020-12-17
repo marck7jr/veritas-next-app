@@ -2,7 +2,7 @@
 
 ## Introdution
 
-Official source code for [veritas.marck7jr.dev](veritas.marck7jr.dev). This website is designed to house and promote the progress of *Veritas Game Launcher*, a game launcher, currently in development, written in C# and UWP for Windows 10.
+Official source code for [veritas.marck7jr.dev](https://veritas.marck7jr.dev). This website is designed to house and promote the progress of *Veritas Game Launcher*, a game launcher, currently in development, written in C# and UWP for Windows 10.
 
 All trademarks and copyright-written content found on this website belong to their respective owners. The *Veritas Game Launcher* team is in no way affiliated with any mentioned entity.
 
