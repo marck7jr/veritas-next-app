@@ -12,7 +12,7 @@ const _ = [
     href: "/blog",
   },
   {
-    content: "Github",
+    content: "GitHub",
     href: "https://github.com/marck7jr/veritas-uwp-app",
     target: "_blank",
   },

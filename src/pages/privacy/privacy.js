@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Layout from "../components/layout";
-import styles from "../styles/privacy.module.scss";
+import Layout from "../../components/layout";
+import styles from "./privacy.module.scss";
 
 const Privacy = () => {
   return (

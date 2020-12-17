@@ -67,8 +67,8 @@ const Index = () => {
             <div>
               <h1>
                 <span>Powered by&nbsp;</span>
-                <Link href="">
-                  <a>IGDB</a>
+                <Link href="https://www.igdb.com/">
+                  <a target="_blank">IGDB</a>
                 </Link>
               </h1>
               <p>

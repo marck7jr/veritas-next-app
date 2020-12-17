@@ -1,0 +1,47 @@
+@import "../../styles/theme";
+@import "../../styles/responsive";
+
+.blog {
+  display: grid;
+  grid-template-areas: "content";
+  padding: 0 1em;
+  @include respond-to("medium") {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "content aside";
+    padding: 0 4em;
+  }
+
+  .blog_content {
+    grid-area: content;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding: 0;
+    }
+
+    &_item {
+      @include theme-resource("background", $background-alt);
+      border-radius: 4pt;
+      display: flex;
+      flex-direction: column;
+      padding: 1em;
+      margin-top: 4pt;
+
+      a {
+        font-weight: 700;
+        text-transform: uppercase;
+
+        &:hover {
+          @include theme-resource("color", $color-accent);
+        }
+      }
+
+      span {
+        margin-top: 4pt;
+        font-size: 10pt;
+      }
+    }
+  }
+}
