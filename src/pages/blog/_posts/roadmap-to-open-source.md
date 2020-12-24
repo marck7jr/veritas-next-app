@@ -1,6 +1,5 @@
 ---
 title: Roadmap to Open Source
-slug: roadmap-to-open-source
 date: "2020-11-29"
 ---
 

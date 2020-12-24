@@ -1,4 +1,7 @@
+@import "../../styles/theme";
+
 .content {
+    @include theme-resource("background", $background-alt-1);
     grid-area: content;
     max-width: 100%;
 }

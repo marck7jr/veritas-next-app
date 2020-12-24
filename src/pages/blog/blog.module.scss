@@ -22,7 +22,7 @@
     }
 
     &_item {
-      @include theme-resource("background", $background-alt);
+      @include theme-resource("background", $background-alt-2);
       border-radius: 4pt;
       display: flex;
       flex-direction: column;

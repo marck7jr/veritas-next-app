@@ -4,7 +4,9 @@ $theme-dark: "theme-dark";
 $theme-light: "theme-light";
 
 $background: "background";
-$background-alt: "background-alt";
+$background-alt-1: "background-alt-1";
+$background-alt-2: "background-alt-2";
+$background-alt-3: "background-alt-3";
 $color: "color";
 $color-accent: "color-accent";
 $color-alt: "chrome";
@@ -12,25 +14,21 @@ $color-alt: "chrome";
 $color-accent-theme-dark: #0bc3b2;
 $color-accent-theme-light: #107f7e;
 
-$is-theme-light: true;
-
-@media (prefers-color-scheme: dark) {
-  $is-theme-light: false !global;
-}
-
-$alt-value: 5;
-
 $themes: (
   $theme-dark: (
     $background: #000,
-    $background-alt: lighten(#000, $alt-value),
+    $background-alt-1: lighten(#000, 5),
+    $background-alt-2: lighten(#000, 10),
+    $background-alt-3: lighten(#000, 15),
     $color: #fff,
     $color-accent: $color-accent-theme-dark,
     $color-alt: #ccc,
   ),
   $theme-light: (
     $background: #fff,
-    $background-alt: darken(#fff, $alt-value),
+    $background-alt-1: darken(#fff, 5),
+    $background-alt-2: darken(#fff, 10),
+    $background-alt-3: darken(#fff, 15),
     $color: #000,
     $color-accent: $color-accent-theme-light,
     $color-alt: #121212,

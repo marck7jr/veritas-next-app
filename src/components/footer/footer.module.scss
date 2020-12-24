@@ -2,7 +2,7 @@
 
 .footer {
     display: flex;
-    @include theme-resource('background', $color, .1);
+    @include theme-resource("background", $background-alt-3);
     flex-direction: row-reverse;
     font-size: .8em;
     font-weight: 100;

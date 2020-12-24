@@ -1,0 +1,26 @@
+@import "../../styles/theme";
+
+.post {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &_body {
+    text-align: justify;
+  }
+
+  &_header {
+      h1 {
+          margin: 0;
+      }
+  }
+
+  &_layout {
+    @include theme-resource("background", $background);
+    box-shadow: 0 0 8pt 2pt rgba(#000, 0.05);
+    border-radius: 4pt;
+    margin: 2em 0;
+    max-width: 960px;
+    padding: 2em 8em;
+  }
+}

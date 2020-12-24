@@ -4,6 +4,8 @@
 @import "../styles/neon";
 
 .index {
+  @include theme-resource("background", $background);
+
   a {
     @include theme-resource("color", $color-accent);
   }
@@ -18,7 +20,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    @include theme-resource("background", $background-alt);
+    @include theme-resource("background", $background-alt-2);
 
     button {
       border-radius: 2em;

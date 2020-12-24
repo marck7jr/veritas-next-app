@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/layout/layout";
-import styles from "../styles/index.module.scss";
+import styles from "./index.module.scss";
 
 const Index = () => {
   return (

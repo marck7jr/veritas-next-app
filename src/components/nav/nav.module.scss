@@ -6,7 +6,7 @@
 @import "../../styles/theme";
 
 .nav {
-  @include theme-resource("background", $background-alt);
+  @include theme-resource("background", $background);
   box-shadow: 0 0 8pt 2pt rgba(#000, 0.2);
   border-radius: 0 0 4pt 4pt;
   display: flex;

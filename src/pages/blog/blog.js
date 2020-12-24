@@ -11,8 +11,12 @@ const Blog = ({ posts }) => {
           <div className={styles.blog_content}>
             <h1>Blog</h1>
             <ul>
-              {posts.map((_) => {
-                return BlogItem(_);
+              {posts.map((_, id) => {
+                return (
+                  <li key={id}>
+                    <BlogItem {..._} />
+                  </li>
+                );
               })}
             </ul>
           </div>
@@ -22,18 +26,17 @@ const Blog = ({ posts }) => {
   );
 };
 
-const BlogItem = ({ date, id, slug, title }) => {
+const BlogItem = ({ date, slug, title }) => {
   return (
     <>
-      <li className={styles.blog_content_item} key={id}>
+      <div className={styles.blog_content_item}>
         <Link href={`/blog/${slug}`}>
           <a>{title}</a>
         </Link>
         <span>{moment(date).fromNow()}</span>
-      </li>
+      </div>
     </>
   );
 };
-
 
 export default Blog;
