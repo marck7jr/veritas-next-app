@@ -1,6 +1,7 @@
 import Link from "next/link";
 import moment from "moment";
-import Layout from "../../components/layout";
+import { getAllPosts } from "../lib/api";
+import Layout from "../components/layout";
 import styles from "./blog.module.scss";
 
 const Blog = ({ posts }) => {
@@ -37,6 +38,16 @@ const BlogItem = ({ date, slug, title }) => {
       </div>
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  const posts = getAllPosts(["date", "title", "slug"]);
+
+  return {
+    props: {
+      posts,
+    },
+  };
 };
 
 export default Blog;
